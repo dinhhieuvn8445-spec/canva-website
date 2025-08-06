@@ -34,4 +34,6 @@ export default defineConfig({
       deny: ["**/.*"],
     },
   },
+  base: '/', // Thêm dòng này để đảm bảo base URL là gốc
 });
+
