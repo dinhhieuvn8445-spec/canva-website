@@ -1,0 +1,638 @@
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khóa học Canva Chuyên nghiệp - HDT AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-blue': '#2563EB',
+                        'brand-red': '#DC2626',
+                        'brand-green': '#059669',
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body class="font-inter bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-xl font-bold text-gray-900">HDT AI</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#course-info" class="text-gray-700 hover:text-brand-blue px-3 py-2 text-sm font-medium">Thông tin khóa học</a>
+                        <a href="#instructors" class="text-gray-700 hover:text-brand-blue px-3 py-2 text-sm font-medium">Giảng viên</a>
+                        <a href="#pricing" class="text-gray-700 hover:text-brand-blue px-3 py-2 text-sm font-medium">Bảng giá</a>
+                        <a href="#contact" class="text-gray-700 hover:text-brand-blue px-3 py-2 text-sm font-medium">Liên hệ</a>
+                    </div>
+                </div>
+                <button class="md:hidden">
+                    <i class="fas fa-bars text-gray-700"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-br from-brand-blue to-blue-700 text-white overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-10"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+            <div class="text-center">
+                <div class="inline-block bg-red-500 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
+                    Dành riêng cho 100 người đăng ký đầu tiên
+                </div>
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                    THIẾT KẾ ĐỒ HỌA<br>
+                    <span class="text-yellow-300">CHUYÊN NGHIỆP</span><br>
+                    TOÀN DIỆN VỚI CANVA
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 text-blue-100">BỘ KHÓA HỌC</p>
+                
+                <!-- Price Display -->
+                <div class="mb-8">
+                    <div class="text-5xl md:text-7xl font-bold text-yellow-300 mb-2">1.000.000 VNĐ</div>
+                    <p class="text-lg text-blue-100">Tặng kèm các gói tài nguyên dành cho thiết kế</p>
+                </div>
+
+                <!-- Countdown Timer -->
+                <div class="bg-white bg-opacity-10 rounded-2xl p-6 mb-8 max-w-md mx-auto">
+                    <h3 class="text-lg font-semibold mb-4">Thời gian ưu đãi còn lại:</h3>
+                    <div class="flex justify-center space-x-4">
+                        <div class="text-center">
+                            <div class="bg-white text-brand-blue rounded-lg px-3 py-2 font-bold text-xl" id="countdown-days">13</div>
+                            <div class="text-sm mt-1">Ngày</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-white text-brand-blue rounded-lg px-3 py-2 font-bold text-xl" id="countdown-hours">23</div>
+                            <div class="text-sm mt-1">Giờ</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-white text-brand-blue rounded-lg px-3 py-2 font-bold text-xl" id="countdown-minutes">59</div>
+                            <div class="text-sm mt-1">Phút</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-white text-brand-blue rounded-lg px-3 py-2 font-bold text-xl" id="countdown-seconds">57</div>
+                            <div class="text-sm mt-1">Giây</div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#registration" class="inline-block bg-brand-red hover:bg-red-700 text-white font-bold py-4 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">
+                    ĐĂNG KÝ NHẬN ƯU ĐÃI
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Features -->
+    <section id="course-info" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Điểm nổi bật của khóa học</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Khóa học Canva toàn diện giúp bạn làm chủ thiết kế từ cơ bản đến nâng cao chỉ trong thời gian ngắn
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition duration-300">
+                    <div class="text-brand-green mb-4">
+                        <i class="fas fa-check-circle text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-900">Lộ trình bài bản, dễ tiếp cận</h3>
+                    <p class="text-gray-600">Dành cho người mới bắt đầu và nâng cao kỹ năng cho người đã biết</p>
+                </div>
+
+                <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition duration-300">
+                    <div class="text-brand-green mb-4">
+                        <i class="fas fa-robot text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-900">Tích hợp AI chỉnh sửa</h3>
+                    <p class="text-gray-600">Sử dụng AI để chỉnh sửa ảnh, tạo video, hỗ trợ sáng tạo nội dung</p>
+                </div>
+
+                <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition duration-300">
+                    <div class="text-brand-green mb-4">
+                        <i class="fas fa-project-diagram text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-900">Thực hành nhiều dự án thực tế</h3>
+                    <p class="text-gray-600">Bài đăng Facebook, Instagram, video TikTok, YouTube...</p>
+                </div>
+
+                <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition duration-300">
+                    <div class="text-brand-green mb-4">
+                        <i class="fas fa-palette text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-900">Xây dựng thương hiệu cá nhân</h3>
+                    <p class="text-gray-600">Hướng dẫn tạo bộ nhận diện thương hiệu hoàn chỉnh</p>
+                </div>
+
+                <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition duration-300">
+                    <div class="text-brand-green mb-4">
+                        <i class="fas fa-download text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-900">Hỗ trợ tài nguyên thiết kế</h3>
+                    <p class="text-gray-600">Mẹo và thủ thuật giúp tăng hiệu suất gấp nhiều lần</p>
+                </div>
+
+                <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition duration-300">
+                    <div class="text-brand-green mb-4">
+                        <i class="fas fa-sync-alt text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-900">Cập nhật liên tục</h3>
+                    <p class="text-gray-600">Khóa học được bổ sung nội dung mới thường xuyên</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics -->
+    <section class="py-16 bg-brand-blue text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">THỐNG KÊ</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-4xl md:text-5xl font-bold text-yellow-300 mb-2">3750</div>
+                    <div class="text-lg text-blue-100">Khách hàng trung thành</div>
+                </div>
+                <div>
+                    <div class="text-4xl md:text-5xl font-bold text-yellow-300 mb-2">451</div>
+                    <div class="text-lg text-blue-100">Dự án hoàn thành</div>
+                </div>
+                <div>
+                    <div class="text-4xl md:text-5xl font-bold text-yellow-300 mb-2">05</div>
+                    <div class="text-lg text-blue-100">Thành tích đặc biệt</div>
+                </div>
+                <div>
+                    <div class="text-4xl md:text-5xl font-bold text-yellow-300 mb-2">255</div>
+                    <div class="text-lg text-blue-100">Đối tác lớn</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructors Section -->
+    <section id="instructors" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Người chắp cánh đam mê</h2>
+                <p class="text-lg text-gray-600">Thông tin nổi bật về đội ngũ giảng viên của HDT AI</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Instructor 1 - Using provided photo -->
+                <div class="bg-gray-50 rounded-2xl p-8 text-center hover:shadow-xl transition duration-300">
+                    <div class="mb-6">
+                        <img src="data:image/png;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCADcANwDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoo" alt="Giảng viên Minh Tuấn" class="w-32 h-32 rounded-full mx-auto object-cover border-4 border-white shadow-lg" data-mock="true">
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2" data-mock="true">Giảng viên: Minh Tuấn</h3>
+                    <div class="text-brand-blue font-semibold mb-3" data-mock="true">Canva Expert • Content Creator</div>
+                    <p class="text-gray-600 text-sm mb-4" data-mock="true">
+                        "Tôi đã có 5 năm kinh nghiệm trong lĩnh vực thiết kế đồ họa và marketing digital. 
+                        Chuyên về Canva, Adobe Creative Suite, và các công cụ AI hỗ trợ thiết kế."
+                    </p>
+                    <div class="text-sm text-gray-500" data-mock="true">
+                        Canva Pro, ChatGPT, Adobe Illustrator, Figma
+                    </div>
+                </div>
+
+                <!-- Instructor 2 - Using provided photo -->
+                <div class="bg-gray-50 rounded-2xl p-8 text-center hover:shadow-xl transition duration-300">
+                    <div class="mb-6">
+                        <img src="data:image/png;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCADcANwDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKA..." alt="Giảng viên Đức Minh" class="w-32 h-32 rounded-full mx-auto object-cover border-4 border-white shadow-lg" data-mock="true">
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2" data-mock="true">Giảng viên: Đức Minh</h3>
+                    <div class="text-brand-blue font-semibold mb-3" data-mock="true">AI Integration Specialist</div>
+                    <p class="text-gray-600 text-sm mb-4" data-mock="true">
+                        "Chuyên gia về tích hợp AI vào quy trình thiết kế. Tôi đã đào tạo hơn 2000 học viên 
+                        sử dụng ChatGPT kết hợp với Canva để tối ưu hóa năng suất sáng tạo."
+                    </p>
+                    <div class="text-sm text-gray-500" data-mock="true">
+                        ChatGPT, Midjourney, Canva AI, Leonardo AI
+                    </div>
+                </div>
+
+                <!-- Instructor 3 - Existing instructor -->
+                <div class="bg-gray-50 rounded-2xl p-8 text-center hover:shadow-xl transition duration-300">
+                    <div class="mb-6">
+                        <img src="data:image/png;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCADcANwDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKA..." alt="Giảng viên Hoàng Anh Tú" class="w-32 h-32 rounded-full mx-auto object-cover border-4 border-white shadow-lg">
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Giảng viên: Hoàng Anh Tú</h3>
+                    <div class="text-brand-blue font-semibold mb-3">Marketing & AI Tools Expert</div>
+                    <p class="text-gray-600 text-sm mb-4">
+                        "Tôi đã giảng dạy về các công cụ hỗ trợ Marketing, các công cụ AI như Leonardo AI, 
+                        KlingAI, Digen, HeyGen, D-ID, Video-Gen và các công cụ xử lý hình ảnh, videos, âm thanh."
+                    </p>
+                    <div class="text-sm text-gray-500">
+                        Canva, ChatGPT, Capcut, YouTube, TikTok
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Packages -->
+    <section id="pricing" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Lộ trình học</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Basic Package -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition duration-300">
+                    <div class="text-center">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Canva Cơ bản</h3>
+                        <p class="text-gray-600 mb-4">(Beginner)</p>
+                        <div class="text-4xl font-bold text-brand-blue mb-6">500.000 VNĐ</div>
+                        
+                        <ul class="text-left space-y-3 mb-8">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-brand-green mt-1 mr-3"></i>
+                                <span class="text-gray-700">Làm quen giao diện, đăng nhập, chuyển ngôn ngữ</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-brand-green mt-1 mr-3"></i>
+                                <span class="text-gray-700">Các thao tác cơ bản: chỉnh kích thước, xóa, khôi phục</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-brand-green mt-1 mr-3"></i>
+                                <span class="text-gray-700">Thiết kế ảnh bìa Facebook, poster, banner</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-brand-green mt-1 mr-3"></i>
+                                <span class="text-gray-700">Thực hành nhiều ấn phẩm cơ bản</span>
+                            </li>
+                        </ul>
+                        
+                        <p class="text-sm text-gray-600 mb-6">✔️ Phù hợp: Người mới bắt đầu, hoặc chưa biết gì về thiết kế</p>
+                    </div>
+                </div>
+
+                <!-- Advanced Package -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition duration-300">
+                    <div class="text-center">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Canva Nâng cao</h3>
+                        <p class="text-gray-600 mb-4">(Advanced)</p>
+                        <div class="text-4xl font-bold text-brand-blue mb-6">500.000 VNĐ</div>
+                        
+                        <ul class="text-left space-y-3 mb-8">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-brand-green mt-1 mr-3"></i>
+                                <span class="text-gray-700">Khai thác tính năng AI: xóa nền, chỉnh màu</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-brand-green mt-1 mr-3"></i>
+                                <span class="text-gray-700">Thiết kế video: TikTok, Facebook, YouTube</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-brand-green mt-1 mr-3"></i>
+                                <span class="text-gray-700">Kết hợp với ChatGPT: gợi ý ý tưởng</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-brand-green mt-1 mr-3"></i>
+                                <span class="text-gray-700">Xây dựng bộ nhận diện thương hiệu</span>
+                            </li>
+                        </ul>
+                        
+                        <p class="text-sm text-gray-600 mb-6">✔️ Phù hợp: Chủ doanh nghiệp, nhà sáng tạo nội dung, marketer</p>
+                    </div>
+                </div>
+
+                <!-- Full Combo - Featured -->
+                <div class="bg-gradient-to-br from-brand-blue to-blue-700 text-white rounded-2xl p-8 shadow-xl transform scale-105 relative">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                        <span class="bg-brand-red text-white px-4 py-2 rounded-full text-sm font-semibold">PHỔ BIẾN NHẤT</span>
+                    </div>
+                    
+                    <div class="text-center">
+                        <h3 class="text-2xl font-bold mb-2">Combo Canva Full</h3>
+                        <p class="text-blue-100 mb-4">Khóa học hoàn chỉnh</p>
+                        <div class="text-4xl font-bold text-yellow-300 mb-6">1.000.000 VNĐ</div>
+                        
+                        <ul class="text-left space-y-3 mb-8">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-yellow-300 mt-1 mr-3"></i>
+                                <span class="text-blue-100">Bao gồm cả 2 khóa học cơ bản và nâng cao</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-yellow-300 mt-1 mr-3"></i>
+                                <span class="text-blue-100">Tặng kèm gói tài nguyên thiết kế</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-yellow-300 mt-1 mr-3"></i>
+                                <span class="text-blue-100">Hỗ trợ trực tiếp từ giảng viên</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-yellow-300 mt-1 mr-3"></i>
+                                <span class="text-blue-100">Cập nhật nội dung mới liên tục</span>
+                            </li>
+                        </ul>
+                        
+                        <p class="text-sm text-blue-100 mb-6">Tiết kiệm 50% so với mua riêng lẻ!</p>
+                        
+                        <a href="#registration" class="block w-full bg-brand-red hover:bg-red-700 text-white font-bold py-3 px-6 rounded-full transition duration-300">
+                            ĐĂNG KÝ NGAY
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Form -->
+    <section id="registration" class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">ĐĂNG KÝ KHÓA HỌC</h2>
+                <p class="text-lg text-gray-600">Điền thông tin để nhận ưu đãi đặc biệt</p>
+            </div>
+
+            <!-- @COMPONENT: RegistrationForm -->
+            <div class="bg-gray-50 rounded-2xl p-8">
+                <form id="registrationForm" class="space-y-6">
+                    <!-- Name Input -->
+                    <div>
+                        <label for="fullName" class="block text-sm font-medium text-gray-700 mb-2">Họ và tên *</label>
+                        <input type="text" id="fullName" name="fullName" required
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent transition duration-300"
+                               placeholder="Nhập họ tên đầy đủ" data-mock="true">
+                    </div>
+
+                    <!-- Phone Input -->
+                    <div>
+                        <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Số điện thoại *</label>
+                        <input type="tel" id="phone" name="phone" required
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent transition duration-300"
+                               placeholder="Nhập số điện thoại" data-mock="true">
+                    </div>
+
+                    <!-- Email Input -->
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+                        <input type="email" id="email" name="email" required
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent transition duration-300"
+                               placeholder="Nhập địa chỉ email" data-mock="true">
+                    </div>
+
+                    <!-- Course Selection -->
+                    <div>
+                        <label for="coursePackage" class="block text-sm font-medium text-gray-700 mb-2">Chọn gói khóa học *</label>
+                        <select id="coursePackage" name="coursePackage" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent transition duration-300" data-mock="true">
+                            <option value="">Chọn gói khóa học</option>
+                            <option value="basic">Gói Canva cơ bản - 500k</option>
+                            <option value="advanced">Gói Canva nâng cao - 500k</option>
+                            <option value="combo">Combo full Canva - 1000k</option>
+                        </select>
+                    </div>
+
+                    <!-- Experience Level -->
+                    <div>
+                        <label for="experience" class="block text-sm font-medium text-gray-700 mb-2">Mức độ kinh nghiệm</label>
+                        <select id="experience" name="experience"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent transition duration-300" data-mock="true">
+                            <option value="">Chọn mức độ</option>
+                            <option value="beginner">Người mới bắt đầu</option>
+                            <option value="intermediate">Đã có kinh nghiệm cơ bản</option>
+                            <option value="advanced">Có kinh nghiệm nâng cao</option>
+                        </select>
+                    </div>
+
+                    <!-- Message -->
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Ghi chú</label>
+                        <textarea id="message" name="message" rows="4"
+                                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent transition duration-300"
+                                  placeholder="Chia sẻ mong muốn của bạn về khóa học..." data-mock="true"></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" 
+                            class="w-full bg-brand-blue hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-lg transition duration-300 transform hover:scale-105"
+                            data-event="click:handleFormSubmit" data-implementation="Should validate form and send data to Google Sheets">
+                        <i class="fas fa-paper-plane mr-2"></i>
+                        GỬI ĐĂNG KÝ
+                    </button>
+                </form>
+            </div>
+            <!-- @END_COMPONENT: RegistrationForm -->
+
+            <!-- Payment Information -->
+            <div class="mt-12 bg-blue-50 rounded-2xl p-8">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">Thông tin thanh toán</h3>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-4">Thông tin chuyển khoản</h4>
+                        <div class="bg-white rounded-lg p-6 space-y-3">
+                            <div class="flex justify-between">
+                                <span class="font-medium text-gray-700">Ngân hàng:</span>
+                                <span class="text-gray-900">Techcombank</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="font-medium text-gray-700">Chủ tài khoản:</span>
+                                <span class="text-gray-900">Hoang Anh Tu</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="font-medium text-gray-700">Số tài khoản:</span>
+                                <span class="text-gray-900 font-mono">88043333333</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-4">Lưu ý quan trọng</h4>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li class="flex items-start">
+                                <span class="bg-brand-red text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-2 mt-0.5">1</span>
+                                Chỉ chuyển khoản sau khi đã hoàn tất bấm "Đăng ký gói"
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-brand-red text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-2 mt-0.5">2</span>
+                                Khi chuyển khoản, ghi rõ HỌ TÊN + SỐ ĐIỆN THOẠI
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-brand-red text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-2 mt-0.5">3</span>
+                                Giữ lại biên lai/chụp màn hình giao dịch
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-brand-red text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-2 mt-0.5">4</span>
+                                Nhân viên sẽ liên hệ trong vòng 24 giờ
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">LIÊN HỆ</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-brand-red mr-3"></i>
+                            <span class="text-gray-300">203 Bế Văn Đàn - Quang Trung - Đống Đa - Hà Nội</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-brand-red mr-3"></i>
+                            <span class="text-gray-300">+84 33 473 4875</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-brand-red mr-3"></i>
+                            <span class="text-gray-300">gattsvn@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Working Hours -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">THỜI GIAN LÀM VIỆC</h3>
+                    <div class="space-y-2 text-gray-300">
+                        <div>Thứ 2 - Thứ 6: 8AM đến 5PM</div>
+                        <div>Thứ 7: 8AM đến 11AM</div>
+                        <div>Chủ nhật: Nghỉ</div>
+                    </div>
+                </div>
+
+                <!-- Social Groups -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">HỌI NHÓM</h3>
+                    <div class="space-y-3">
+                        <a href="https://zalo.me/g/ylfdge520" class="flex items-center text-gray-300 hover:text-white transition duration-300">
+                            <i class="fab fa-zalo text-brand-red mr-3"></i>
+                            <span>Nhóm Zalo</span>
+                        </a>
+                        <a href="#" class="flex items-center text-gray-300 hover:text-white transition duration-300">
+                            <i class="fab fa-telegram text-brand-red mr-3"></i>
+                            <span>Nhóm Telegram (đang cập nhật)</span>
+                        </a>
+                        <a href="#" class="flex items-center text-gray-300 hover:text-white transition duration-300">
+                            <i class="fab fa-facebook text-brand-red mr-3"></i>
+                            <span>Fanpage FB (đang cập nhật)</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Privacy Policy -->
+            <div class="mt-12 pt-8 border-t border-gray-700 text-center">
+                <div class="mb-4">
+                    <h4 class="text-lg font-semibold mb-2">🌐 CHÍNH SÁCH & BẢO MẬT</h4>
+                    <p class="text-gray-300 text-sm max-w-2xl mx-auto">
+                        Chúng tôi cam kết bảo vệ thông tin cá nhân và quyền riêng tư của khách hàng. 
+                        Tất cả dữ liệu được thu thập và xử lý tuân thủ nghiêm ngặt các quy định pháp luật hiện hành.
+                    </p>
+                </div>
+                <p class="text-gray-400 text-sm">
+                    Cập nhật lần cuối: 02/07/2025 | 
+                    <a href="https://www.kingai.com.vn/policies" class="text-brand-blue hover:text-blue-400">Xem chi tiết chính sách</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script>
+        // Countdown Timer Functionality
+        (function() {
+            function updateCountdown() {
+                // TODO: Set actual end date for promotion
+                const endDate = new Date('2025-07-15T23:59:59').getTime();
+                const now = new Date().getTime();
+                const distance = endDate - now;
+
+                if (distance > 0) {
+                    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                    document.getElementById('countdown-days').textContent = days.toString().padStart(2, '0');
+                    document.getElementById('countdown-hours').textContent = hours.toString().padStart(2, '0');
+                    document.getElementById('countdown-minutes').textContent = minutes.toString().padStart(2, '0');
+                    document.getElementById('countdown-seconds').textContent = seconds.toString().padStart(2, '0');
+                } else {
+                    // Countdown expired
+                    document.getElementById('countdown-days').textContent = '00';
+                    document.getElementById('countdown-hours').textContent = '00';
+                    document.getElementById('countdown-minutes').textContent = '00';
+                    document.getElementById('countdown-seconds').textContent = '00';
+                }
+            }
+
+            // Update countdown every second
+            setInterval(updateCountdown, 1000);
+            updateCountdown(); // Initial call
+        })();
+
+        // Form Submission Handler
+        (function() {
+            const form = document.getElementById('registrationForm');
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // TODO: Implement Google Sheets integration
+                // This would typically involve:
+                // 1. Collecting form data
+                // 2. Validating the data
+                // 3. Sending to Google Sheets via Google Apps Script or API
+                // 4. Showing success/error message to user
+                
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData);
+                
+                console.log('Form data to send to Google Sheets:', data);
+                
+                // Placeholder for actual implementation
+                alert('Cảm ơn bạn đã đăng ký! Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.');
+                
+                // Reset form after successful submission
+                form.reset();
+            });
+        })();
+
+        // Smooth scrolling for navigation links
+        (function() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        })();
+
+        // Mobile menu toggle (placeholder for actual implementation)
+        // TODO: Implement mobile menu functionality
+    </script>
+</body>
+</html>

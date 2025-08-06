@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FormSync - Google Sheets Form Builder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                        }
+                    }
+                }
+            }
+        };
+    </script>
+</head>
+<body class="font-inter bg-slate-50 min-h-screen">
+    <!-- @COMPONENT: Header -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-4">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-sync-alt text-white text-sm"></i>
+                        </div>
+                        <h1 class="text-xl font-semibold text-slate-900">FormSync</h1>
+                    </div>
+                </div>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-primary-600 font-medium border-b-2 border-primary-600 pb-4">Forms</a>
+                    <a href="#" class="text-slate-600 hover:text-slate-900 transition-colors">Analytics</a>
+                    <a href="#" class="text-slate-600 hover:text-slate-900 transition-colors">Settings</a>
+                </nav>
+                <div class="flex items-center space-x-4">
+                    <div class="flex items-center space-x-2 text-sm">
+                        <div class="w-2 h-2 bg-emerald-500 rounded-full"></div>
+                        <span class="text-slate-600">Google Sheets Connected</span>
+                    </div>
+                    <button class="bg-primary-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-primary-700 transition-colors">
+                        <i class="fas fa-plus mr-2"></i>New Form
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- @END_COMPONENT: Header -->
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- @COMPONENT: DashboardStats -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <div class="bg-white rounded-xl p-6 border border-slate-200">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-slate-600">Total Forms</p>
+                        <p class="text-3xl font-semibold text-slate-900" data-bind="dashboard.totalForms">12</p>
+                    </div>
+                    <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-file-alt text-blue-600 text-xl"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-xl p-6 border border-slate-200">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-slate-600">Total Submissions</p>
+                        <p class="text-3xl font-semibold text-slate-900" data-bind="dashboard.totalSubmissions">1,247</p>
+                    </div>
+                    <div class="w-12 h-12 bg-emerald-50 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-paper-plane text-emerald-600 text-xl"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-xl p-6 border border-slate-200">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-slate-600">This Month</p>
+                        <p class="text-3xl font-semibold text-slate-900" data-bind="dashboard.monthlySubmissions">89</p>
+                    </div>
+                    <div class="w-12 h-12 bg-amber-50 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-chart-line text-amber-600 text-xl"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-xl p-6 border border-slate-200">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-slate-600">Sync Status</p>
+                        <p class="text-sm font-semibold text-emerald-600">All Synced</p>
+                    </div>
+                    <div class="w-12 h-12 bg-emerald-50 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-sync text-emerald-600 text-xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- @END_COMPONENT: DashboardStats -->
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- @COMPONENT: FormBuilder -->
+            <div class="lg:col-span-2">
+                <div class="bg-white rounded-xl border border-slate-200">
+                    <div class="p-6 border-b border-slate-200">
+                        <div class="flex items-center justify-between mb-4">
+                            <h2 class="text-lg font-semibold text-slate-900">Form Builder</h2>
+                            <div class="flex items-center space-x-2">
+                                <button class="px-3 py-2 text-sm border border-slate-200 rounded-lg hover:bg-slate-50 transition-colors">
+                                    <i class="fas fa-eye mr-2"></i>Preview
+                                </button>
+                                <button class="px-3 py-2 text-sm bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors">
+                                    <i class="fas fa-save mr-2"></i>Save
+                                </button>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <input type="text" placeholder="Form Title" value="Customer Information Form" data-bind="form.title" class="flex-1 px-3 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-table text-emerald-600"></i>
+                                <span class="text-sm text-slate-600">Sheet: Customer_Data</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Form Fields Area -->
+                    <div class="p-6">
+                        <div class="space-y-4">
+                            <!-- @MAP: formFields.map(field => ( -->
+                            <div class="border border-slate-200 rounded-lg p-4 hover:border-slate-300 transition-colors" data-mock="true">
+                                <div class="flex items-center justify-between mb-2">
+                                    <div class="flex items-center space-x-2">
+                                        <i class="fas fa-grip-vertical text-slate-400"></i>
+                                        <span class="font-medium text-slate-900">Full Name</span>
+                                        <span class="text-xs bg-slate-100 px-2 py-1 rounded">Text</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <button class="p-1 text-slate-400 hover:text-slate-600">
+                                            <i class="fas fa-edit text-sm"></i>
+                                        </button>
+                                        <button class="p-1 text-slate-400 hover:text-red-600">
+                                            <i class="fas fa-trash text-sm"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <input type="text" placeholder="Enter your full name" class="w-full px-3 py-2 border border-slate-200 rounded-lg bg-slate-50" disabled>
+                            </div>
+
+                            <div class="border border-slate-200 rounded-lg p-4 hover:border-slate-300 transition-colors" data-mock="true">
+                                <div class="flex items-center justify-between mb-2">
+                                    <div class="flex items-center space-x-2">
+                                        <i class="fas fa-grip-vertical text-slate-400"></i>
+                                        <span class="font-medium text-slate-900">Email Address</span>
+                                        <span class="text-xs bg-slate-100 px-2 py-1 rounded">Email</span>
+                                        <span class="text-xs bg-red-100 text-red-600 px-2 py-1 rounded">Required</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <button class="p-1 text-slate-400 hover:text-slate-600">
+                                            <i class="fas fa-edit text-sm"></i>
+                                        </button>
+                                        <button class="p-1 text-slate-400 hover:text-red-600">
+                                            <i class="fas fa-trash text-sm"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <input type="email" placeholder="your.email@example.com" class="w-full px-3 py-2 border border-slate-200 rounded-lg bg-slate-50" disabled>
+                            </div>
+
+                            <div class="border border-slate-200 rounded-lg p-4 hover:border-slate-300 transition-colors" data-mock="true">
+                                <div class="flex items-center justify-between mb-2">
+                                    <div class="flex items-center space-x-2">
+                                        <i class="fas fa-grip-vertical text-slate-400"></i>
+                                        <span class="font-medium text-slate-900">Company Size</span>
+                                        <span class="text-xs bg-slate-100 px-2 py-1 rounded">Dropdown</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <button class="p-1 text-slate-400 hover:text-slate-600">
+                                            <i class="fas fa-edit text-sm"></i>
+                                        </button>
+                                        <button class="p-1 text-slate-400 hover:text-red-600">
+                                            <i class="fas fa-trash text-sm"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <select class="w-full px-3 py-2 border border-slate-200 rounded-lg bg-slate-50" disabled>
+                                    <option>Select company size</option>
+                                    <option>1-10 employees</option>
+                                    <option>11-50 employees</option>
+                                    <option>51-200 employees</option>
+                                </select>
+                            </div>
+                            <!-- @END_MAP )) -->
+
+                            <!-- Add Field Button -->
+                            <div class="border-2 border-dashed border-slate-300 rounded-lg p-8 text-center hover:border-slate-400 transition-colors cursor-pointer" data-event="click:openFieldSelector">
+                                <i class="fas fa-plus text-2xl text-slate-400 mb-2"></i>
+                                <p class="text-slate-600 font-medium">Add New Field</p>
+                                <p class="text-sm text-slate-500 mt-1">Choose from text, email, dropdown, and more</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- @END_COMPONENT: FormBuilder -->
+
+            <!-- @COMPONENT: FormPreview -->
+            <div class="lg:col-span-1">
+                <div class="bg-white rounded-xl border border-slate-200 mb-6">
+                    <div class="p-4 border-b border-slate-200">
+                        <h3 class="font-semibold text-slate-900 flex items-center">
+                            <i class="fas fa-mobile-alt mr-2 text-slate-600"></i>
+                            Form Preview
+                        </h3>
+                    </div>
+                    <div class="p-4">
+                        <div class="bg-slate-50 rounded-lg p-4 border">
+                            <h4 class="font-semibold text-slate-900 mb-4">Customer Information Form</h4>
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-700 mb-1">Full Name</label>
+                                    <input type="text" placeholder="Enter your full name" class="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-700 mb-1">
+                                        Email Address <span class="text-red-500">*</span>
+                                    </label>
+                                    <input type="email" placeholder="your.email@example.com" class="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-700 mb-1">Company Size</label>
+                                    <select class="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm">
+                                        <option>Select company size</option>
+                                    </select>
+                                </div>
+                                <button class="w-full bg-primary-600 text-white py-2 rounded-lg font-medium text-sm hover:bg-primary-700 transition-colors">
+                                    Submit Form
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- @COMPONENT: GoogleSheetsStatus -->
+                <div class="bg-white rounded-xl border border-slate-200">
+                    <div class="p-4 border-b border-slate-200">
+                        <h3 class="font-semibold text-slate-900 flex items-center">
+                            <i class="fas fa-table mr-2 text-emerald-600"></i>
+                            Google Sheets Integration
+                        </h3>
+                    </div>
+                    <div class="p-4 space-y-4">
+                        <div class="flex items-center justify-between p-3 bg-emerald-50 rounded-lg">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-2 h-2 bg-emerald-500 rounded-full"></div>
+                                <span class="text-sm font-medium text-emerald-800">Connected</span>
+                            </div>
+                            <button class="text-emerald-600 hover:text-emerald-700 text-sm">
+                                <i class="fas fa-external-link-alt"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-600">Spreadsheet:</span>
+                                <span class="font-medium text-slate-900">Customer Database</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-600">Sheet:</span>
+                                <span class="font-medium text-slate-900">Customer_Data</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-600">Last Sync:</span>
+                                <span class="font-medium text-slate-900">2 minutes ago</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-slate-200">
+                            <button class="w-full bg-slate-100 text-slate-700 py-2 rounded-lg font-medium text-sm hover:bg-slate-200 transition-colors" data-event="click:openSheetSettings">
+                                <i class="fas fa-cog mr-2"></i>Sheet Settings
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- @END_COMPONENT: GoogleSheetsStatus -->
+            </div>
+            <!-- @END_COMPONENT: FormPreview -->
+        </div>
+
+        <!-- @COMPONENT: RecentSubmissions -->
+        <div class="mt-8">
+            <div class="bg-white rounded-xl border border-slate-200">
+                <div class="p-6 border-b border-slate-200">
+                    <div class="flex items-center justify-between">
+                        <h2 class="text-lg font-semibold text-slate-900">Recent Submissions</h2>
+                        <div class="flex items-center space-x-2">
+                            <button class="px-3 py-2 text-sm border border-slate-200 rounded-lg hover:bg-slate-50 transition-colors">
+                                <i class="fas fa-download mr-2"></i>Export
+                            </button>
+                            <button class="px-3 py-2 text-sm border border-slate-200 rounded-lg hover:bg-slate-50 transition-colors">
+                                <i class="fas fa-sync mr-2"></i>Sync Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead class="bg-slate-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Timestamp</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Name</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Email</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Company Size</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Status</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-slate-200">
+                            <!-- @MAP: submissions.map(submission => ( -->
+                            <tr data-mock="true">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-900">2024-01-15 14:32</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">John Smith</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-900">john.smith@example.com</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-900">11-50 employees</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">
+                                        <div class="w-1.5 h-1.5 bg-emerald-400 rounded-full mr-1"></div>
+                                        Synced
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500">
+                                    <button class="text-slate-400 hover:text-slate-600 mr-2">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="text-slate-400 hover:text-red-600">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr data-mock="true">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-900">2024-01-15 13:45</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">Sarah Johnson</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-900">sarah.j@company.com</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-900">51-200 employees</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">
+                                        <div class="w-1.5 h-1.5 bg-amber-400 rounded-full mr-1"></div>
+                                        Pending
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500">
+                                    <button class="text-slate-400 hover:text-slate-600 mr-2">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="text-slate-400 hover:text-red-600">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr data-mock="true">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-900">2024-01-15 12:18</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">Mike Wilson</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-900">m.wilson@startup.io</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-900">1-10 employees</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">
+                                        <div class="w-1.5 h-1.5 bg-emerald-400 rounded-full mr-1"></div>
+                                        Synced
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500">
+                                    <button class="text-slate-400 hover:text-slate-600 mr-2">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="text-slate-400 hover:text-red-600">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <!-- @END_MAP )) -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- @END_COMPONENT: RecentSubmissions -->
+    </div>
+
+    <!-- @COMPONENT: FieldSelectorModal -->
+    <div id="fieldSelectorModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden" data-implementation="Modal for selecting field types">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-2xl mx-4">
+            <div class="p-6 border-b border-slate-200">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-lg font-semibold text-slate-900">Add Form Field</h3>
+                    <button class="text-slate-400 hover:text-slate-600" data-event="click:closeModal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="p-6">
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <button class="p-4 border border-slate-200 rounded-lg hover:border-primary-300 hover:bg-primary-50 transition-colors text-left" data-event="click:addField" data-field-type="text">
+                        <i class="fas fa-font text-xl text-slate-600 mb-2"></i>
+                        <div class="font-medium text-slate-900">Text</div>
+                        <div class="text-sm text-slate-500">Single line text input</div>
+                    </button>
+                    <button class="p-4 border border-slate-200 rounded-lg hover:border-primary-300 hover:bg-primary-50 transition-colors text-left" data-event="click:addField" data-field-type="email">
+                        <i class="fas fa-envelope text-xl text-slate-600 mb-2"></i>
+                        <div class="font-medium text-slate-900">Email</div>
+                        <div class="text-sm text-slate-500">Email address field</div>
+                    </button>
+                    <button class="p-4 border border-slate-200 rounded-lg hover:border-primary-300 hover:bg-primary-50 transition-colors text-left" data-event="click:addField" data-field-type="phone">
+                        <i class="fas fa-phone text-xl text-slate-600 mb-2"></i>
+                        <div class="font-medium text-slate-900">Phone</div>
+                        <div class="text-sm text-slate-500">Phone number input</div>
+                    </button>
+                    <button class="p-4 border border-slate-200 rounded-lg hover:border-primary-300 hover:bg-primary-50 transition-colors text-left" data-event="click:addField" data-field-type="dropdown">
+                        <i class="fas fa-list text-xl text-slate-600 mb-2"></i>
+                        <div class="font-medium text-slate-900">Dropdown</div>
+                        <div class="text-sm text-slate-500">Select from options</div>
+                    </button>
+                    <button class="p-4 border border-slate-200 rounded-lg hover:border-primary-300 hover:bg-primary-50 transition-colors text-left" data-event="click:addField" data-field-type="textarea">
+                        <i class="fas fa-align-left text-xl text-slate-600 mb-2"></i>
+                        <div class="font-medium text-slate-900">Textarea</div>
+                        <div class="text-sm text-slate-500">Multi-line text input</div>
+                    </button>
+                    <button class="p-4 border border-slate-200 rounded-lg hover:border-primary-300 hover:bg-primary-50 transition-colors text-left" data-event="click:addField" data-field-type="checkbox">
+                        <i class="fas fa-check-square text-xl text-slate-600 mb-2"></i>
+                        <div class="font-medium text-slate-900">Checkbox</div>
+                        <div class="text-sm text-slate-500">Multiple selections</div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- @END_COMPONENT: FieldSelectorModal -->
+
+    <script>
+        // TODO: Implement form builder drag and drop functionality
+        // TODO: Implement Google Sheets API integration
+        // TODO: Implement real-time form validation
+        // TODO: Implement form submission handling and data export
+        
+        (function() {
+            // Modal functionality for field selector
+            const fieldSelectorModal = document.getElementById('fieldSelectorModal');
+            
+            // Show modal when add field button is clicked
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('[data-event="click:openFieldSelector"]')) {
+                    fieldSelectorModal.classList.remove('hidden');
+                }
+                
+                if (e.target.closest('[data-event="click:closeModal"]')) {
+                    fieldSelectorModal.classList.add('hidden');
+                }
+                
+                // Close modal when clicking outside
+                if (e.target === fieldSelectorModal) {
+                    fieldSelectorModal.classList.add('hidden');
+                }
+            });
+            
+            // Handle field selection
+            document.addEventListener('click', function(e) {
+                const addFieldBtn = e.target.closest('[data-event="click:addField"]');
+                if (addFieldBtn) {
+                    const fieldType = addFieldBtn.getAttribute('data-field-type');
+                    console.log('Adding field of type:', fieldType);
+                    // TODO: Implement field addition logic
+                    fieldSelectorModal.classList.add('hidden');
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
